@@ -35,16 +35,17 @@ images[currentIndex].classList.add('active');
 // al click del bottone
 nextButton.addEventListener('click' , function(){
     
-     //! se sono all'ultima immagine impedisco di cliccare
-     if(currentIndex === images.length - 1){
-        return;
-    }
-
+    
     // rimuovo la classe active all'immagine corrispondente al currentIndex
     images[currentIndex].classList.remove('active');
-
+    
     // aumento il currentIndex
     currentIndex++;
+
+    //! se sono all'ultima immagine impedisco di cliccare
+    if(currentIndex === images.length){
+       currentIndex = 0;
+   }
 
     // aggiungo la classe active all'immagine corrispondente al currentIndex
     images[currentIndex].classList.add('active');
@@ -54,16 +55,17 @@ nextButton.addEventListener('click' , function(){
 // al click del bottone
 prevButton.addEventListener('click' , function(){
     
-    //! se sono alla prima immagine impedisco di cliccare
-    if(currentIndex === 0){
-        return;
-    }
-
+    
     // rimuovo la classe active all'immagine corrispondente al currentIndex
     images[currentIndex].classList.remove('active');
-
+    
     // diminuisco il currentIndex
     currentIndex--;
+    
+    //! se sono alla prima immagine impedisco di cliccare
+    if(currentIndex < 0){
+        currentIndex = images.length -1;
+    }
 
     // aggiungo la classe active all'immagine corrispondente al currentIndex
     images[currentIndex].classList.add('active');
